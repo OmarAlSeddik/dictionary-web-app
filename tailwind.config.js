@@ -3,9 +3,9 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     fontFamily: {
-      sans: ["Roboto"],
-      serif: ["Roboto Slab"],
-      mono: ["Roboto Mono"],
+      sans: ["Inter"],
+      serif: ["Lora"],
+      mono: ["Inconsolata"],
     },
     fontSize: {
       sm: ["0.875rem", "1.0625rem"],
