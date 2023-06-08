@@ -19,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`absolute inset-0 font-sans
+        className={`absolute inset-0 font-sans text-c3
         ${inter.className} ${lora.className} ${inconsolata.className}`}
       >
         <div
-          className="max-w-[46rem] gap-[1.5rem] sm:gap-[3.25rem] flex flex-col
+          className="max-w-[51rem] gap-[1.5rem] sm:gap-[3.25rem] flex flex-col
         mx-auto p-[1.5rem] sm:p-[2.5rem] sm:pt-[3.625rem]"
         >
           <Header />
