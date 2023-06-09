@@ -1,4 +1,5 @@
 import { Inconsolata, Inter, Lora } from "next/font/google";
+import { AppContextProvider } from "./AppContext";
 import Header from "./components/Header";
 import "./globals.css";
 
@@ -17,19 +18,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`absolute inset-0 font-sans text-c3
+    <AppContextProvider>
+      <html lang="en">
+        <body
+          className={`absolute inset-0 font-sans text-c3 dark:bg-c1 dark:text-white
+          lightScrollbar dark:darkScrollbar
         ${inter.className} ${lora.className} ${inconsolata.className}`}
-      >
-        <div
-          className="max-w-[51rem] gap-[1.5rem] sm:gap-[3.25rem] flex flex-col
-        mx-auto p-[1.5rem] sm:p-[2.5rem] sm:pt-[3.625rem]"
         >
-          <Header />
-          {children}
-        </div>
-      </body>
-    </html>
+          <div
+            className="max-w-[51rem] gap-[1.5rem] sm:gap-[3.25rem] flex flex-col
+        mx-auto p-[1.5rem] sm:p-[2.5rem] sm:pt-[3.625rem]"
+          >
+            <Header />
+            {children}
+          </div>
+        </body>
+      </html>
+    </AppContextProvider>
   );
 }

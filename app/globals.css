@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .lightScrollbar {
+    overflow: auto;
+  }
+  .lightScrollbar::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+  .lightScrollbar::-webkit-scrollbar-track {
+    @apply bg-c6;
+  }
+  .lightScrollbar::-webkit-scrollbar-thumb {
+    @apply bg-c2;
+    border-radius: 10rem;
+  }
+
+  .darkScrollbar {
+    overflow: auto;
+  }
+  .darkScrollbar::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+  .darkScrollbar::-webkit-scrollbar-track {
+    @apply bg-c2;
+  }
+  .darkScrollbar::-webkit-scrollbar-thumb {
+    @apply bg-c6;
+    border-radius: 10rem;
+  }
+}
