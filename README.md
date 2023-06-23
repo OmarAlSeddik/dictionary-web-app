@@ -4,8 +4,8 @@ This is a solution to Frontend Mentor's [Dictionary web app challenge](https://w
 
 ## Links
 
-- WIP
-- WIP
+- [Live Link](https://dictionary-web-app-omaralseddik.vercel.app/)
+- [Solution Link](https://www.frontendmentor.io/solutions/nextjs-v13-app-router-typescript-tailwind-nIn_WTIcX9)
 
 ## Features
 
@@ -29,4 +29,8 @@ This is a solution to Frontend Mentor's [Dictionary web app challenge](https://w
 
 ## Mobile Screenshots
 
-WIP
+<p float="left">
+  <img src="public/screenshots/mobile_screenshot_1.png" width="32%" />
+  <img src="public/screenshots/mobile_screenshot_2.png" width="32%" />
+  <img src="public/screenshots/mobile_screenshot_3.png" width="32%" /> 
+</p>

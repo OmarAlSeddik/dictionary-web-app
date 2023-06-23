@@ -8,25 +8,14 @@ export default function SearchBox() {
   const router = useRouter();
   const pathname = usePathname().slice(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   useEffect(() => {
-    const debounceId = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 250);
-
-    return () => {
-      clearTimeout(debounceId);
-    };
-  }, [searchTerm]);
-
-  useEffect(() => {
-    setSearchTerm(pathname);
+    setSearchTerm(decodeURI(pathname));
   }, [pathname]);
 
   useEffect(() => {
-    router.replace(debouncedSearchTerm);
-  }, [debouncedSearchTerm, router]);
+    router.replace(searchTerm);
+  }, [searchTerm, router]);
 
   return (
     <div className="bg-c7 rounded-[1rem]  flex h-[3rem] sm:h-[4rem] dark:bg-c2 transition-all">
