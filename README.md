@@ -6,6 +6,7 @@ This is a solution to Frontend Mentor's [Dictionary web app challenge](https://w
 
 - [Live Link](https://dictionary-web-app-omaralseddik.vercel.app/)
 - [Solution Link](https://www.frontendmentor.io/solutions/nextjs-v13-app-router-typescript-tailwind-nIn_WTIcX9)
+- [The Dictionary API](https://dictionaryapi.dev/)
 
 ## Features
 
