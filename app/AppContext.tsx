@@ -5,8 +5,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 type ContextType = {
   darkTheme: boolean | undefined;
   toggleTheme: () => void;
-  font: string;
+  font: string | undefined;
   changeFont: (newFont: string) => void;
+  text: string;
+  changeText: (newText: string) => void;
 };
 
 const defaultState = {
@@ -16,6 +18,10 @@ const defaultState = {
   },
   font: "sans",
   changeFont() {
+    return;
+  },
+  text: "",
+  changeText() {
     return;
   },
 };
@@ -28,7 +34,8 @@ type PropsType = {
 
 export const AppContextProvider = ({ children }: PropsType) => {
   const [darkTheme, setDarkTheme] = useState<boolean | undefined>();
-  const [font, setFont] = useState("sans");
+  const [font, setFont] = useState<string | undefined>();
+  const [text, setText] = useState<string>("");
 
   useEffect(() => {
     if (darkTheme === undefined)
@@ -48,6 +55,29 @@ export const AppContextProvider = ({ children }: PropsType) => {
     }
   }, [darkTheme]);
 
+  useEffect(() => {
+    if (font === undefined)
+      "font" in localStorage ? setFont(localStorage.font) : setFont("sans");
+    else {
+      if (font == "sans") {
+        document.body.classList.add("font-sans");
+        document.body.classList.remove("font-serif");
+        document.body.classList.remove("font-mono");
+        localStorage.font = "sans";
+      } else if (font == "serif") {
+        document.body.classList.add("font-serif");
+        document.body.classList.remove("font-sans");
+        document.body.classList.remove("font-mono");
+        localStorage.font = "serif";
+      } else {
+        document.body.classList.add("font-mono");
+        document.body.classList.remove("font-sans");
+        document.body.classList.remove("font-serif");
+        localStorage.font = "mono";
+      }
+    }
+  }, [font]);
+
   const toggleTheme = () => {
     setDarkTheme((prev) => !prev);
   };
@@ -56,8 +86,14 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setFont(newFont);
   };
 
+  const changeText = (newText: string) => {
+    setText(newText);
+  };
+
   return (
-    <AppContext.Provider value={{ darkTheme, toggleTheme, font, changeFont }}>
+    <AppContext.Provider
+      value={{ darkTheme, toggleTheme, font, changeFont, text, changeText }}
+    >
       {children}
     </AppContext.Provider>
   );

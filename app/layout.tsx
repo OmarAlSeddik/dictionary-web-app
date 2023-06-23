@@ -35,7 +35,7 @@ export default function RootLayout({
     <AppContextProvider>
       <html lang="en">
         <body
-          className={`absolute inset-0 font-sans text-c3 dark:bg-c1 dark:text-white
+          className={`absolute inset-0 text-c3 dark:bg-c1 dark:text-white
           lightScrollbar dark:darkScrollbar transition-all
           ${inter.variable} ${lora.variable} ${inconsolata.variable}`}
         >
