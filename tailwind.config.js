@@ -4,9 +4,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans: ["Inter"],
-      serif: ["Lora"],
-      mono: ["Inconsolata"],
+      sans: ["var(--font-inter)"],
+      serif: ["var(--font-lora)"],
+      mono: ["var(--font-inconsolata)"],
     },
     fontSize: {
       sm: ["0.875rem", "1.0625rem"],
@@ -27,6 +27,10 @@ module.exports = {
         c8: "#FFFFFF",
         cPrimary: "#A445ED",
         cError: "#FF5252",
+      },
+      boxShadow: {
+        light: "0px 5px 30px 0px rgba(0, 0, 0, 0.10)",
+        dark: "0px 5px 30px 0px #A445ED",
       },
       screens: {
         mouseHover: { raw: "(hover: hover)" },

@@ -30,4 +30,9 @@
     @apply bg-c6;
     border-radius: 10rem;
   }
+
+  .moonDark {
+    filter: invert(36%) sepia(59%) saturate(3823%) hue-rotate(254deg)
+      brightness(93%) contrast(100%);
+  }
 }

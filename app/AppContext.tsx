@@ -2,11 +2,20 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type ContextType = { darkTheme: boolean | undefined; toggleTheme: () => void };
+type ContextType = {
+  darkTheme: boolean | undefined;
+  toggleTheme: () => void;
+  font: string;
+  changeFont: (newFont: string) => void;
+};
 
 const defaultState = {
   darkTheme: false,
   toggleTheme() {
+    return;
+  },
+  font: "sans",
+  changeFont() {
     return;
   },
 };
@@ -19,6 +28,7 @@ type PropsType = {
 
 export const AppContextProvider = ({ children }: PropsType) => {
   const [darkTheme, setDarkTheme] = useState<boolean | undefined>();
+  const [font, setFont] = useState("sans");
 
   useEffect(() => {
     if (darkTheme === undefined)
@@ -42,8 +52,12 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setDarkTheme((prev) => !prev);
   };
 
+  const changeFont = (newFont: string) => {
+    setFont(newFont);
+  };
+
   return (
-    <AppContext.Provider value={{ darkTheme, toggleTheme }}>
+    <AppContext.Provider value={{ darkTheme, toggleTheme, font, changeFont }}>
       {children}
     </AppContext.Provider>
   );

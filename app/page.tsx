@@ -1,16 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { useAppContext } from "./AppContext";
 
 export default function Home() {
+  const [isHovering, setIsHovered] = useState(false);
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
+
+  const { font } = useAppContext();
+  const fontClass = `
+  ${
+    font == "sans" ? "font-sans" : font == "serif" ? "font-serif" : "font-mono"
+  }`;
+
   return (
-    <main className="flex flex-col gap-[2rem] sm:gap-[2.5rem]">
+    <main className={`flex flex-col gap-[2rem] sm:gap-[2.5rem] ${fontClass}`}>
       <div className="flex items-center justify-between">
         <div className="flex flex-col">
           <h1 className="text-[2rem] font-bold sm:text-2xl">keyboard</h1>
           <h2 className="text-cPrimary sm:text-xl">/ˈkiːbɔːd/</h2>
         </div>
-        <button className="w-[3rem] h-[3rem] sm:w-[4.6875rem] sm:h-[4.6875rem] relative">
-          <Image src="/icon-play.svg" alt="Listen" fill />
+        <button
+          className="w-[3rem] h-[3rem] sm:w-[4.6875rem] sm:h-[4.6875rem] relative"
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          {isHovering ? (
+            <Image src="/icon-play-hover.svg" alt="Listen" fill />
+          ) : (
+            <Image src="/icon-play.svg" alt="Listen" fill />
+          )}
         </button>
       </div>
       <div className="flex items-center gap-[1.625rem]">
